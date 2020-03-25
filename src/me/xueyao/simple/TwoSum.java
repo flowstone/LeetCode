@@ -1,6 +1,8 @@
 package me.xueyao.simple;
 
 import java.util.Arrays;
+import java.util.HashMap;
+import java.util.Map;
 
 /**
  * 给定一个整数数组 nums 和一个目标值 target，请你在该数组中找出和为目标值的那 两个 整数，并返回他们的数组下标。
@@ -23,7 +25,7 @@ public class TwoSum {
         System.out.println(Arrays.toString(twoSum(nums, 22)));
     }
 
-    public static int[] twoSum(int[] nums, int target) {
+    public static int[] twoSumV1(int[] nums, int target) {
         for(int i= 0;i<nums.length;i++) {
             for (int j = 0; j < nums.length; j++) {
                 if (i != j && nums[i] + nums[j] == target) {
@@ -32,6 +34,31 @@ public class TwoSum {
                 }
             }
         }
+        return null;
+    }
+
+    public static int[] twoSumv2(int[] nums, int target) {
+        for (int i = 0; i < nums.length; i++) {
+            for (int j = i+1; j < nums.length; j++) {
+                if (nums[i] + nums[j] == target && i != j) {
+                    System.out.println("["+i+","+j+"]");
+                    return new int[]{i, j};
+                }
+            }
+        }
+        return null;
+    }
+
+    public static int[] twoSum(int[] nums, int target) {
+        Map<Integer, Integer> map = new HashMap<>(16);
+        for (int i = 0; i < nums.length; i++) {
+            int complement = target - nums[i];
+            if (map.containsKey(complement)) {
+                return new int[]{map.get(complement), i};
+            }
+            map.put(nums[i], i);
+        }
+
         return null;
     }
 }
