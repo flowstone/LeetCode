@@ -1,4 +1,4 @@
-package me.xueyao.simple;
+package me.xueyao.simple.array;
 
 /**
  * @author Simon.Xue

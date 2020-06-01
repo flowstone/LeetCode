@@ -1,4 +1,4 @@
-package me.xueyao.simple;
+package me.xueyao.simple.array;
 
 import java.util.Arrays;
 import java.util.HashMap;

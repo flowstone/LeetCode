@@ -1,4 +1,4 @@
-package me.xueyao.simple;
+package me.xueyao.simple.array;
 
 /**
  * 简单算法
@@ -34,8 +34,28 @@ public class Solution {
         return rev;
     }
 
+    public static int searchInsert(int[] nums, int target) {
+        int i = 0;
+        if (nums[nums.length - 1] < target ) {
+            return nums.length;
+        }
+        for(int j=0; j<nums.length; j++) {
+            if (nums[i] == target) {
+                return i;
+            }
+            if (nums[i] < target && target < nums[j+1]) {
+                return j+1;
+            }
+
+            i++;
+        }
+
+
+        return 0;
+    }
+
 
     public static void main(String[] args) {
-        System.out.println(reverse(-123456));
+        System.out.println(searchInsert(new int[] {1,3,5,6}, 2));
     }
 }
